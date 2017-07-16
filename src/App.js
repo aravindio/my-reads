@@ -32,17 +32,21 @@ class BooksApp extends React.Component {
   }
 
   render() {
+    const { books } = this.state
+    const updateBook = this.updateBook
     return (
       <div className="app">
         <Route exact path="/" render={() => (
           <ListBooks
-            books={this.state.books}
-            updateBook={this.updateBook}
+            books={books}
+            updateBook={updateBook}
           />
         )}/>
         <Route path="/search" render={() => (
           <SearchBooks
-            updateBook={this.updateBook}
+            updateBook={updateBook}
+            bookIds={books.map(b => b.id)}
+            bookShelves={books.map(b => b.shelf)}
           />
         )}/>
       </div>
