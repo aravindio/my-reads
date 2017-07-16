@@ -20,7 +20,7 @@ class Book extends React.Component {
       backgroundImage: `url("${book.imageLinks && book.imageLinks.thumbnail}")`
     }
     return (
-      <li key={book.id}>
+      <li>
         <div className="book">
           <div className="book-top">
             <div className="book-cover" style={styles}></div>
