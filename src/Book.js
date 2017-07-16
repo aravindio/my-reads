@@ -1,6 +1,11 @@
 import React from 'react'
 
 class Book extends React.Component {
+  shelfChange(book, shelf) {
+    book.shelf = shelf;
+    this.props.updateBook(book, shelf);
+  }
+
   render() {
     const { book } = this.props
     const styles = {
@@ -14,7 +19,10 @@ class Book extends React.Component {
           <div className="book-top">
             <div className="book-cover" style={styles}></div>
             <div className="book-shelf-changer">
-              <select>
+              <select
+                value={book.shelf}
+                onChange={e => this.shelfChange(book, e.target.value)}
+              >
                 <option disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
