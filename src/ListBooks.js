@@ -1,8 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import Bookshelf from './Bookshelf'
 
 class ListBooks extends React.Component {
+  static propTypes = {
+    books: PropTypes.array.isRequired,
+    updateBook: PropTypes.func.isRequired,
+  }
+
   render() {
     const { books, updateBook } = this.props
     return (
