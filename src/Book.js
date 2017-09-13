@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 class Book extends React.Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
-    updateBook: PropTypes.func.isRequired,
+    updateBook: PropTypes.func.isRequired
   }
 
   shelfChange(book, shelf) {
-    book.shelf = shelf;
-    this.props.updateBook(book, shelf);
+    book.shelf = shelf
+    this.props.updateBook(book, shelf)
   }
 
   render() {

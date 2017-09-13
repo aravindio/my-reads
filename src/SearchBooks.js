@@ -20,7 +20,7 @@ class SearchBooks extends React.Component {
     if (query.length) {
       this.setState({ query: query.trim() })
       BooksAPI.search(query).then(books => {
-        this.setState({ books: this.syncShelves(books) });
+        this.setState({ books: this.syncShelves(books) })
       })
     } else {
       this.setState({ query, books: [] })
@@ -31,11 +31,11 @@ class SearchBooks extends React.Component {
     return books.map(book => {
       let index = this.props.bookIds.indexOf(book.id)
       if (index !== -1) {
-        book.shelf = this.props.bookShelves[index];
-        return book;
+        book.shelf = this.props.bookShelves[index]
+        return book
       } else {
-        book.shelf = "none";
-        return book;
+        book.shelf = "none"
+        return book
       }
     })
   }
